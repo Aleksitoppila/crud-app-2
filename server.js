@@ -32,10 +32,10 @@ app.use('/', mainRoute);
 app.use('/api/usrs', usersRoute);
 app.use('/api/prj', projectRoute);
 
-app.use(express.static(path.join(__dirname, '/client/public')));
-app.get('*', (req, res) => 
-  res.sendFile(__dirname, '/client/public/index.html')
-);
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 app.use((req, res, next) => {
   res.status(404).json({ message: 'Route not found' });
