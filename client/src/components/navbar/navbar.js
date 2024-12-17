@@ -175,7 +175,6 @@ export const SearchBar = () => {
         const pages = [
             { name: 'Home', route: '/', id: 'Page' },
             { name: 'Projects', route: '/projects', id: 'Page' },
-            { name: 'Users', route: '/users', id: 'Page' },
         ]
 
         const allSuggestions = [

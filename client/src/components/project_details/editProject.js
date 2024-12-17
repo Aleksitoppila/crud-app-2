@@ -58,7 +58,7 @@ export const EditProject = () => {
             setLoading(true);
 
             try {
-                const response = await fetch(`http://localhost:8000/api/prj/${id}`, {
+                const response = await fetch(`/api/prj/${id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
