@@ -58,15 +58,13 @@ export const EditProject = () => {
             setLoading(true);
 
             try {
-                const response = await fetch(`/api/prj/${id}`, {
-                    method: 'GET',
+                const response = await axios.get(`/api/prj/${id}`, {
                     headers: {
-                        'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`,
                     },
                 });
 
-                if (response.ok) {
+                if (response === 200) {
                     const data = await response.json();
                     setFormValue({
                         projectName: data.projectName,
