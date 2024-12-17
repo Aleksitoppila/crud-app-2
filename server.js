@@ -7,7 +7,6 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath} from 'url';
 
-import mainRoute from './routes/mainRoute.js';
 import usersRoute from './routes/usersRoute.js';
 import projectRoute from './routes/projectRoute.js';
 
@@ -28,7 +27,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use('/', mainRoute);
 app.use('/api/usrs', usersRoute);
 app.use('/api/prj', projectRoute);
 
