@@ -1,19 +1,20 @@
 import React from "react"
-import { Link } from "react-router-dom/dist/index.d.mts"
+import { Link } from "react-router-dom"
+import bgImage from '../img/bg-picture.png';
 
 export const Home = () => {
     return (
         <div className="Home">
-            <div className="relative w-full h-[75vh]">
+            <div className="relative w-full h-[100vh]">
                 <img
                     className="object-cover w-full h-full bg-fixed"
-                    src="./img/bg-picture.png"
+                    src={bgImage}
                     alt="Background"
                 />
                 <div className="absolute text-4xl font-bold text-center text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <div className="mb-12">
                         <h1 className="text-5xl">Create and manage your projects easily!</h1>
-                    </div>
+                    </div> 
                     <div className="flex justify-center gap-8 mx-auto">
                         <Link to='/login'>
                             <button className="px-6 py-2 bg-teal-400 rounded-3xl hover:bg-teal-500 active:bg-teal-600">

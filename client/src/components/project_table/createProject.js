@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Notification } from '../notification'
-import { useNavigate } from 'react-router-dom/dist/index.d.mts'
+import { useNavigate } from 'react-router-dom'
 
 export const CreateProject = () => {
     const [formValue, setFormValue] = useState({
@@ -49,7 +49,7 @@ export const CreateProject = () => {
         if (isModalOpen) {
             fetchUsers();
         }
-    }, [isModalOpen]);
+    }, [isModalOpen, navigate]);
 
     const handleTabInsert = (e) => {
         if (e.key === 'Tab') {

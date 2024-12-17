@@ -1,8 +1,8 @@
 // models/projectModel.js
 
 // Imports
-const mongoose = require('mongoose');
-const User = require('./userModel');
+import mongoose from 'mongoose';
+import userModel from './userModel.js';
 
 const projectSchema = mongoose.Schema({
     projectName: {
@@ -33,4 +33,4 @@ const projectSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Projects', projectSchema, '_projects');
+export default mongoose.model('Projects', projectSchema, '_projects');

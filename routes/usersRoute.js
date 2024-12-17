@@ -1,18 +1,19 @@
 // routes/userRoute.js
 
+
 // Imports
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const verifyToken = require('../middleware/verifyToken');
-const {
-    getAllUsers,
-    getUserById,
-    createUser,
-    updateUser,
-    deleteUser,
-    userSignIn,
-    userLogout
-} = require('../controllers/userController');
+import verifyToken from '../middleware/verifyToken.js';
+import { 
+    getAllUsers, 
+    getUserById, 
+    createUser, 
+    updateUser, 
+    deleteUser, 
+    userSignIn, 
+    userLogout 
+} from '../controllers/userController.js';
 
 // GET all users
 router.get('/', verifyToken, getAllUsers);
@@ -36,4 +37,4 @@ router.patch('/update/:id', verifyToken, updateUser);
 router.delete('/delete/:id', verifyToken, deleteUser);
 
 // Exports
-module.exports = router;
+export default router;

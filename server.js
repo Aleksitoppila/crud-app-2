@@ -1,9 +1,15 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
-import { fileURLToPath, fileUrlToPath } from 'url';
+import { fileURLToPath} from 'url';
+
+import mainRoute from './routes/mainRoute.js';
+import usersRoute from './routes/usersRoute.js';
+import projectRoute from './routes/projectRoute.js';
 
 const DB_URL = process.env.DB_URL;
 const DB_NAME = process.env.DB_NAME;
@@ -22,11 +28,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const mainRoute = require('./routes/mainRoute');
 app.use('/', mainRoute);
-const usersRoute = require('./routes/usersRoute');
 app.use('/api/usrs', usersRoute);
-const projectRoute = require('./routes/projectRoute');
 app.use('/api/prj', projectRoute);
 
 app.use(express.static(path.join(__dirname, '/client/public')));

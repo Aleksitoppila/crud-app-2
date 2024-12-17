@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom/dist/index.d.mts'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { Projects } from './pages/Projects'
 import { UsersManagement } from './pages/Users'

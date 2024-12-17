@@ -1,17 +1,17 @@
 // routes/projectRoute.js
 
 // Imports
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const verifyToken = require('../middleware/verifyToken');
-const {
+import verifyToken from '../middleware/verifyToken.js';
+import {
     getAllProjects,
     getProjectById,
     postNewProject,
     updateProject,
     deleteProject,
     deleteAllProjects
-} = require('../controllers/projectController');
+} from '../controllers/projectController.js';
 
 // GET All projects
 router.get('/getall', verifyToken, getAllProjects);
@@ -32,4 +32,4 @@ router.delete('/delete/:id', verifyToken, deleteProject);
 router.delete('/deleteall', deleteAllProjects);
 
 // Export
-module.exports = router;
+export default router;

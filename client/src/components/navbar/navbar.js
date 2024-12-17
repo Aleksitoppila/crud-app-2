@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom/dist/index.d.mts'
-import { useNavigate } from 'react-router-dom/dist/index.d.mts'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDebounce } from 'use-debounce'
 
 export const Navbar = () => {

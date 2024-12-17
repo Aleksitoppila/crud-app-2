@@ -1,8 +1,8 @@
 // routes/mainRoute.js
 
 // Imports
-const express = require('express');
-router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 // Index
 router.get('/', (req, res) => {
@@ -14,4 +14,4 @@ router.get('/', (req, res) => {
 });
 
 // Exports
-module.exports = router;
+export default router;

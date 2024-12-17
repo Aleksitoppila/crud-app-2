@@ -1,8 +1,8 @@
 // middleware/verifyToken.js
 
 // Imports
-const jwt = require('jsonwebtoken');
-const RevokedToken = require('../models/revokedToken');
+import jwt from 'jsonwebtoken';
+import RevokedToken from '../models/revokedToken.js';
 
 // Middleware to verify token
 const verifyToken = async (req, res, next) => {
@@ -33,4 +33,4 @@ const verifyToken = async (req, res, next) => {
 };
 
 // Exports
-module.exports = verifyToken;
+export default verifyToken;

@@ -1,7 +1,7 @@
 // models/userModel.js
 
 // Imports
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -47,8 +47,6 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-userSchema.index({ email: 1 });
-
 // Set first and lastname first character to be uppercase
 userSchema.pre('save', function(next) {
     this.firstName = this.firstName.charAt(0).toUpperCase() + this.firstName.slice(1).toLowerCase();
@@ -57,4 +55,4 @@ userSchema.pre('save', function(next) {
     next();
 });
 
-module.exports = mongoose.model('userModel', userSchema, '_users');
+export default mongoose.model('userModel', userSchema, '_users');

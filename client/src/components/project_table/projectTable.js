@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useTable, useSortBy, useFilters, usePagination } from 'react-table';
-import { useNavigate } from 'react-router-dom/dist/index.d.mts';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { PROJECT_COLUMNS } from './columns';
 import { ColumnFilter } from './filters';

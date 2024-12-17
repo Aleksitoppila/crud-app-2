@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom/dist/index.d.mts'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Notification } from '../notification'
-import { useNavigate } from 'react-router-dom/dist/index.d.mts';
+import { useNavigate } from 'react-router-dom';
 
 export const EditProject = () => {
     const { id } = useParams();

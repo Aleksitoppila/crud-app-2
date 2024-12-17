@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { UserDetails } from '../components/user_details/userDetails'
-import { useNavigate } from 'react-router-dom/dist/index.d.mts';
+import { useNavigate } from 'react-router-dom';
 
 export const UsersManagement = () => {
 

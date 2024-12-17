@@ -1,5 +1,5 @@
 {
-  "name": "crud-app-2",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "type": "module" ,
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

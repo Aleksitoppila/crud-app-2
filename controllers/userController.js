@@ -1,13 +1,13 @@
 // controllers/userController.js
 
 // Imports
-const userModel = require('../models/userModel');
-const RevokedToken = require('../models/revokedToken');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import userModel from '../models/userModel.js';
+import RevokedToken from '../models/revokedToken.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 // GET All users
-const getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
     try {
         const users = await userModel.find({}).sort({ createdAt: -1 });
         res.status(200).json(users);
@@ -17,7 +17,7 @@ const getAllUsers = async (req, res) => {
 };
 
 // GET User by ID 
-const getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
     const { id } = req.params;
     try {
 
@@ -35,7 +35,7 @@ const getUserById = async (req, res) => {
 };
 
 // POST New user
-const createUser = async (req, res) => {
+export const createUser = async (req, res) => {
     try {
         const { firstName, lastName, gender, birthday, email, password, role, profilePicture, createdDate } = req.body;
 
@@ -90,7 +90,7 @@ const createUser = async (req, res) => {
 };
 
 // PATCH Existing user
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
     try {
         const { firstName, lastName, gender, birthday, email, password, profilePicture } = req.body;
 
@@ -124,7 +124,7 @@ const updateUser = async (req, res) => {
 };
 
 // DELETE Existing user
-const deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
     try {
         
         // Find user and delete
@@ -141,7 +141,7 @@ const deleteUser = async (req, res) => {
 };
 
 // POST login
-const userSignIn = async (req, res) => {
+export const userSignIn = async (req, res) => {
     let { email, password } = req.body;
 
     // Trim whitespaces from email and password
@@ -189,7 +189,7 @@ const userSignIn = async (req, res) => {
 };
 
 // POST logout
-const userLogout = async (req, res) => {
+export const userLogout = async (req, res) => {
 
     // Extract JWT token from the Authorization header
     const token = req.header('Authorization')?.replace('Bearer ', '');
@@ -232,12 +232,4 @@ const userLogout = async (req, res) => {
 };
 
 // Exports
-module.exports = {
-    getAllUsers,
-    getUserById,
-    createUser,
-    updateUser,
-    deleteUser,
-    userSignIn,
-    userLogout
-};
+export default 'userController';

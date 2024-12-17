@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom/dist/index.d.mts';
+import { useParams } from 'react-router-dom';
 import { ProjectDetails } from '../components/project_details/projectDetails';
 
 export const ProjectManagement = () => {

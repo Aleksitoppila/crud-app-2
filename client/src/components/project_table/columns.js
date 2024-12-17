@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import { Link } from 'react-router-dom/dist/index.d.mts'
+import { Link } from 'react-router-dom'
 import { ColumnFilter, includesFilter, dateFilter, dateFilterLogic } from './filters'
 
 export const PROJECT_COLUMNS = [

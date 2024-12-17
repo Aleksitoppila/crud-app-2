@@ -1,12 +1,12 @@
 // controllers/projectController.js
 
 // Imports
-const projectModel = require('../models/projectModel');
-const User = require('../models/userModel');
-const mongoose = require('mongoose');
+import projectModel from '../models/projectModel.js';
+import User from '../models/userModel.js';
+import mongoose from 'mongoose';
 
 // Validate contributors and project manager
-const validateContributorsAndManager = async (contributors, projectManager) => {
+export const validateContributorsAndManager = async (contributors, projectManager) => {
     try {
         // Check if projectManager ID is valid
         if (!mongoose.Types.ObjectId.isValid(projectManager)) {
@@ -35,7 +35,7 @@ const validateContributorsAndManager = async (contributors, projectManager) => {
 };
 
 // GET All projects
-const getAllProjects = async (req, res) => {
+export const getAllProjects = async (req, res) => {
     try {
         const projects = await projectModel.find({})
             .populate('projectManager', 'firstName lastName')
@@ -48,7 +48,7 @@ const getAllProjects = async (req, res) => {
 };
 
 // GET Project with ID
-const getProjectById = async (req, res) => {
+export const getProjectById = async (req, res) => {
     const { id } = req.params;
     try {
 
@@ -70,7 +70,7 @@ const getProjectById = async (req, res) => {
 };
 
 // POST New project
-const postNewProject = async (req, res) => {
+export const postNewProject = async (req, res) => {
     try {
         const { projectName, description, projectManager, contributor, projectLink } = req.body;
 
@@ -105,7 +105,7 @@ const postNewProject = async (req, res) => {
 };
 
 // UPDATE Project
-const updateProject = async (req, res) => {
+export const updateProject = async (req, res) => {
     try {
         const { projectName, description, projectManager, contributor, projectLink } = req.body;
 
@@ -132,7 +132,7 @@ const updateProject = async (req, res) => {
 };
 
 // DELETE Existing project
-const deleteProject = async (req, res) => {
+export const deleteProject = async (req, res) => {
     try {
         // Find project and delete
         const deletedProject = await projectModel.findByIdAndDelete(req.params.id);
@@ -148,7 +148,7 @@ const deleteProject = async (req, res) => {
 };
 
 // DELETE All existing projects
-const deleteAllProjects = async (req, res) => {
+export const deleteAllProjects = async (req, res) => {
     try {
         // Delete all projects
         const deletedProjects = await projectModel.deleteMany();
@@ -159,11 +159,4 @@ const deleteAllProjects = async (req, res) => {
 };
 
 // Exports
-module.exports = {
-    getAllProjects,
-    getProjectById,
-    postNewProject,
-    updateProject,
-    deleteProject,
-    deleteAllProjects
-};
+export default 'projectController';

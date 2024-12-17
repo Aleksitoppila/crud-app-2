@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ProjectTable } from '../components/project_table/projectTable';
-import { useNavigate } from 'react-router-dom/dist/index.d.mts';
+import { useNavigate } from 'react-router-dom';
 
 export const Projects = () => {
     const [projects, setProjects] = useState(null);

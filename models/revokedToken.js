@@ -1,8 +1,7 @@
 // models/revokedToken.js
 
-
 // Imports
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const revokedTokenSchema = new mongoose.Schema({
     jti: { 
@@ -33,4 +32,4 @@ setInterval(cleanupExpiredRevokedTokens, 24 * 60 * 60 * 1000);
 
 revokedTokenSchema.index({ exp: 1 });
 
-module.exports = mongoose.model('RevokedToken', revokedTokenSchema, '_revokedTokens');
+export default mongoose.model('RevokedToken', revokedTokenSchema, '_revokedTokens');
