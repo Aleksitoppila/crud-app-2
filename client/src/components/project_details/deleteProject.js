@@ -1,80 +1,98 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { Notification } from '../notification'
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Notification } from '../notification';
 
 export const DeleteProject = () => {
-    const { id } = useParams()
-    const navigate = useNavigate()
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-    const [showModal, setShowModal] = useState(false)
-    const [showNotification, setShowNotification] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const [projectName, setProjectName] = useState('')
-    const [projectData, setProjectData] = useState(null)
-    const [notificationType, setNotificationType] = useState('')
+    const [showModal, setShowModal] = useState(false);
+    const [showNotification, setShowNotification] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [projectName, setProjectName] = useState('');
+    const [projectData, setProjectData] = useState(null);
+    const [notificationType, setNotificationType] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const fetchProject = async () => {
-            const token = localStorage.getItem('token'); 
+            const token = localStorage.getItem('token');
             if (!token) {
                 console.error('No token found. Please log in first.');
-                return; 
+                navigate('/login');
+                return;
             }
+
             try {
                 const response = await axios.get(`/api/prj/${id}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
                 });
+
                 if (response.status === 200) {
                     setProjectData(response.data);
                 } else {
-                    alert('Error fetching project data');
+                    setErrorMessage('Error fetching project data');
                 }
             } catch (err) {
+                setErrorMessage('Error fetching project data');
                 console.error('Error fetching project data:', err);
             }
         };
+
         fetchProject();
-    }, [id]);
+    }, [id, navigate]);
 
-    const openModal = () => setShowModal(true)
+    const openModal = () => setShowModal(true);
 
-    const closeModal = () => setShowModal(false)
+    const closeModal = () => setShowModal(false);
 
     const handleDelete = async () => {
         if (projectName !== `remove ${projectData?.projectName}`) {
-            alert('Project name does not match. Please type the correct project name to confirm deletion.')
-            return
+            setErrorMessage('Project name does not match. Please type the correct project name to confirm deletion.');
+            return;
         }
 
-        setLoading(true)
+        setLoading(true);
+        setErrorMessage('');
 
         try {
-            const response = await axios.delete(`/api/prj/delete/${id}`)
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert('No token found. Please log in first.');
+                return;
+            }
+
+            const response = await axios.delete(`/api/prj/delete/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
             if (response.status === 200) {
-                setShowNotification(true)
-                setNotificationType('delete')
-                setShowModal(false)
+                setShowNotification(true);
+                setNotificationType('delete');
+                setShowModal(false);
                 setTimeout(() => {
-                    navigate('/projects')
-                }, 1500)
+                    navigate('/projects');
+                }, 1500);
             } else {
-                alert('Something went wrong while deleting the project')
+                setErrorMessage('Something went wrong while deleting the project');
             }
         } catch (err) {
-            console.error('Error deleting project:', err)
-            alert('Error deleting project')
+            console.error('Error deleting project:', err);
+            setErrorMessage('Error deleting project');
+        } finally {
+            setLoading(false);
         }
-
-        setLoading(false)
-    }
+    };
 
     return (
         <div className="flex">
             <button
-                className="bg-red-500 hover:bg-red-400 hover:scale-105 hover:-translate-y-[0,5] ease-in-out transition-all duration-75 active:bg-red-600 px-2 rounded-sm"
+                className="bg-red-500 hover:bg-red-400 hover:scale-105 hover:-translate-y-[0.5] ease-in-out transition-all duration-75 active:bg-red-600 px-2 rounded-sm"
                 onClick={openModal}
             >
                 <i className="pr-2 text-xs fi fi-rr-trash" />
@@ -99,6 +117,9 @@ export const DeleteProject = () => {
                                 placeholder={`Type "remove ${projectData?.projectName}"`}
                             />
                         </div>
+                        {errorMessage && (
+                            <div className="mt-2 text-red-500">{errorMessage}</div>
+                        )}
                         <div className="flex justify-end mt-6">
                             <button
                                 onClick={handleDelete}
@@ -126,5 +147,5 @@ export const DeleteProject = () => {
                 />
             )}
         </div>
-    )
-}
+    );
+};

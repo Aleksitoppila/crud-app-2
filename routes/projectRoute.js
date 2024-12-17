@@ -29,7 +29,7 @@ router.patch('/update/:id', verifyToken, updateProject);
 router.delete('/delete/:id', verifyToken, deleteProject);
 
 // DELETE All existing projects
-router.delete('/deleteall', deleteAllProjects);
+router.delete('/deleteall', verifyToken, deleteAllProjects);
 
 // Export
 export default router;

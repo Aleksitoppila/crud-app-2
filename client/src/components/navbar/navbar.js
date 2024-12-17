@@ -97,7 +97,7 @@ export const Navbar = () => {
                             </Link>
 
                             <Link to={'/Users'} className='flex justify-center w-4/5 mx-auto sm:w-3/4 md:w-fit'>
-                                <button className="w-full py-2 text-white bg-teal-500 rounded-md hover:bg-teal-400 focus:outline-none">
+                                <button className="w-full py-2 text-white bg-teal-500 rounded-md hover:bg-teal-400 focus:outline-none" disabled>
                                     Users
                                 </button>
                             </Link>
