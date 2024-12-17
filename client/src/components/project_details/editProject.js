@@ -116,9 +116,12 @@ export const EditProject = () => {
 
             if (response.status === 200) {
                 setShowNotification(true);
+    
                 setTimeout(() => {
+                    setShowNotification(false);ds
+                    setIsModalOpen(false);
                     navigate(`/projects/${id}`);
-                }, 1500);
+                }, 1000);
             } else {
                 setErrorMessage('Something went wrong');
             }
