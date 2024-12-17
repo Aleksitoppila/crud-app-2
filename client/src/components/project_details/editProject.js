@@ -118,7 +118,7 @@ export const EditProject = () => {
                 setShowNotification(true);
     
                 setTimeout(() => {
-                    setShowNotification(false);ds
+                    setShowNotification(false);
                     setIsModalOpen(false);
                     navigate(`/projects/${id}`);
                 }, 1000);
@@ -141,7 +141,7 @@ export const EditProject = () => {
             <div className="flex">
                 <div>
                     <button
-                        className="px-2 bg-green-500 rounded-sm hover:bg-green-400 hover:scale-105"
+                        className="px-2 bg-green-500 rounded-sm hover:bg-green-400 hover:scale-105 hover:-translate-y-[0.5] ease-in-out transition-all duration-75 active:bg-green-600"
                         onClick={openModal}
                     >
                         <i className="pr-2 text-xs fi fi-rr-edit" /> Edit
