@@ -1,0 +1,29 @@
+/* src/components/project_table/table.css */
+
+/* Flaticon icons */
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css');
+
+/* Table borders */
+table th {
+  border: 1px solid rgb(24 24 27);
+  border-top: none;
+}
+
+table td {
+  border: 1px solid rgb(24 24 27);
+}
+
+/* Table row colors */
+table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd){
+  background-color: #fff;
+}
+
+/* Disabled buttons color */
+.pages button:disabled,
+button[disabled] {
+  color: #8d8d8d;
+}
