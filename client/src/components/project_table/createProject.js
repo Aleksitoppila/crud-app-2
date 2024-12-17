@@ -36,7 +36,7 @@ export const CreateProject = () => {
                 });
                 setUsers(response.data);
             } catch (err) {
-                console.error('Error fetching users:', error);
+                console.error('Error fetching users:', err);
                 if (err.response && err.response.status === 401) {
                     setErrorMessage('Session expired. Please log in again.');
                     navigate('/login');
