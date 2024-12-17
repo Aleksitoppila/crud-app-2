@@ -116,7 +116,7 @@ export const EditProject = () => {
 
             if (response.status === 200) {
                 setShowNotification(true);
-    
+
                 setTimeout(() => {
                     setShowNotification(false);
                     setIsModalOpen(false);
@@ -141,10 +141,11 @@ export const EditProject = () => {
             <div className="flex">
                 <div>
                     <button
-                        className="px-2 bg-green-500 rounded-sm hover:bg-green-400 hover:scale-105 hover:-translate-y-[0.5] ease-in-out transition-all duration-75 active:bg-green-600"
+                        className="bg-green-500 hover:bg-green-400 hover:scale-105 hover:-translate-y-[0.5] ease-in-out transition-all duration-75 active:bg-green-600 px-2 rounded-sm"
                         onClick={openModal}
                     >
-                        <i className="pr-2 text-xs fi fi-rr-edit" /> Edit
+                        <i className="pr-2 text-xs fi fi-rr-edit" />
+                        Edit
                     </button>
 
                     {isModalOpen && (
