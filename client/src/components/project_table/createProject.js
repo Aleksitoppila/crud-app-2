@@ -116,8 +116,7 @@ export const CreateProject = () => {
                 </div>
             )}
             <button onClick={openModal}
-                className='flex items-center w-fit px-2 py-1 bg-green-500 hover:bg-green-400 hover:scale-105 hover:-translate-y-[0,5]
-                            ease-in-out transition-all duration-75 active:bg-green-600 rounded-sm text-xs sm:text-sm md:text-lg'>
+                className='flex items-center px-2 py-1 text-xs transition-all duration-75 ease-in-out bg-green-500 rounded-sm  w-fit hover:bg-green-400 hover:scale-105 hover:translate-y-1 active:bg-green-600 sm:text-sm md:text-lg'>
                 <i className="flex items-center pr-2 fi fi-rs-add" />
                 Create Project
             </button>
