@@ -92,7 +92,7 @@ export const DeleteProject = () => {
     return (
         <div className="flex">
             <button
-                className="bg-red-500 hover:bg-red-400 hover:scale-105 hover:-translate-y-[0.5] ease-in-out transition-all duration-75 active:bg-red-600 px-2 rounded-sm"
+                className="bg-red-500 hover:bg-red-400 hover:scale-105 hover:translate-y-[0.5] py-2 ease-in-out transition-all duration-75 active:bg-red-600 px-2 rounded-sm"
                 onClick={openModal}
             >
                 <i className="pr-2 text-xs fi fi-rr-trash" />

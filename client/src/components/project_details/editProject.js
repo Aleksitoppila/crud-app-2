@@ -141,7 +141,7 @@ export const EditProject = () => {
             <div className="flex">
                 <div>
                     <button
-                        className="bg-green-500 hover:bg-green-400 hover:scale-105 hover:-translate-y-[0.5] ease-in-out transition-all duration-75 active:bg-green-600 px-2 rounded-sm"
+                        className="bg-green-500 hover:bg-green-400 hover:scale-105 hover:translate-y-[0.5] py-2 ease-in-out transition-all duration-75 active:bg-green-600 px-2 rounded-sm"
                         onClick={openModal}
                     >
                         <i className="pr-2 text-xs fi fi-rr-edit" />
